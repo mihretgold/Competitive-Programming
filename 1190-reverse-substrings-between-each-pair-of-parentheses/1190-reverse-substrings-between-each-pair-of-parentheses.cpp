@@ -1,31 +1,29 @@
 class Solution {
 public:
-  string reverseParentheses(string s) {
-        stack<char>stk;
-        for(int i=0; i<s.size(); i++)
-        {
-            if(s[i]!=')')
-                stk.push(s[i]);
-            else
-            {
-                string ss="";
-                while(!stk.empty()&&stk.top()!='(')
-                {
-                    ss+=stk.top();
-                    stk.pop();
-                }
-                stk.pop();
-                for(int i=0; i<ss.size(); i++)
-                    stk.push(ss[i]);
-            }
+    string reverseParentheses(string s) {
+    stack<char> a;
+   
+    int n = s.size();
+        for(int i=0; i<n; i++){
+          if(s[i]!=')')
+            a.push(s[i]);
+        else{
+             string word="";
+        while(!a.empty()&&a.top()!='('){
+              word+=a.top();
+              a.pop();
+            } 
+            a.pop();
+            for(int i=0; i<word.size(); i++)
+                a.push(word[i]);
+          }
         }
         string ans="";
-        while(!stk.empty())
-        {
-            ans+=stk.top();
-            stk.pop();
+        while(!a.empty()){
+            ans+= a.top();
+            a.pop();
         }
-        reverse(ans.begin(),ans.end());
-        return ans;
+        reverse(ans.begin(), ans.end());
+      return ans;  
     }
 };
