@@ -1,16 +1,13 @@
-#include <iostream>
-#include <cmath>
-
+#include <bits/stdc++.h>
 using namespace std;
-
-int main()
+double Theatre(double x,double y,double z)
 {
-    float n,m,a,l,w;
-    cout<<"Enter the length and width of the square and the length of the flagstone"<<endl;
-    cin>>n>>m>>a;
-    l= ceil(n/a);
-    w= ceil(m/a);
-    long long result= l*w;
-    cout<<result;
-    return 0;
+	return ceil(x/z)*ceil(y/z);
+}
+int main ()
+{
+	double n,m,a;
+	cin>>n>>m>>a;
+	cout<<(long long)Theatre(n,m,a);
+	return 0;
 }
