@@ -68,18 +68,12 @@ vector<string> split(const string &);
  */
 
 vector<int> countingSort(vector<int> arr) {
-    vector<int>counts;
     int n=arr.size();
-for(int i=0;i<100;i++)
-{
-    counts.push_back(0);
-}
-for(int j=0;j<n;j++)
-{
-    ++counts[arr[j]];
-}
-
-return counts;
+    vector<int>counts(100,0);
+    for(int i=0; i<n; i++){
+        ++counts[arr[i]];
+    }
+   return counts; 
 }
 
 int main()
