@@ -8,7 +8,7 @@ public:
            while(r<n && chars[r]==chars[l]){
                r++;
            }
-            //k++;
+           
             chars[k++]=chars[l];
             if(r-l>1){
                 for(char s: to_string(r-l)){
