@@ -5,7 +5,7 @@ public:
     }
     
     int minSetSize(vector<int>& arr) {
-      map<int,int>m;
+     unordered_map<int,int>m;
       int n=arr.size();
       int counts=0,sum=0,i=0;
        
