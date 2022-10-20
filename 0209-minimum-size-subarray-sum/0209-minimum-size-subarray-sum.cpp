@@ -25,6 +25,6 @@ public:
           }          
             
         }
-        return mini%(n+1);
+        return mini==n+1?0:mini;
     }
 };
