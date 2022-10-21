@@ -68,7 +68,7 @@ public:
         return maxlen;
     }*/
     
-  int lengthOfLongestSubstring(string s) {
+ /* int lengthOfLongestSubstring(string s) {
      unordered_map<char, int> m; //character map to index
      int maxi = 0, l = 0, r = 0;
      
@@ -79,7 +79,18 @@ public:
          m[s[r++]] = r; //update element in map, and increment r;
      }
      return maxi;
- }
+ }*/
+    int lengthOfLongestSubstring(string s) {
+        vector<int> dict(256, -1);
+        int maxLen = 0, start = -1;
+        for (int i = 0; i != s.length(); i++) {
+            if (dict[s[i]] > start)
+                start = dict[s[i]];
+            dict[s[i]] = i;
+            maxLen = max(maxLen, i - start);
+        }
+        return maxLen;
+    }
     
     
     
