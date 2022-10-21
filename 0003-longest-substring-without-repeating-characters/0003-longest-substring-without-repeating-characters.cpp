@@ -13,7 +13,7 @@ public:
         for(int j=0;j<s.size();j++)// iterates through string
         {
             
-            for(i=x;i<j;i++) // if i<j iterates to check any simillar elements
+            for(i=y;i<j;i++) // if i<j iterates to check any simillar elements
             {
             // if similar elements are found increaments the starting index of i to start from the found element+1
                 if(s[i]==s[j])
@@ -21,8 +21,8 @@ public:
                     y=i+1;  
                 }
             }
-              ans=max(ans,j-y+1); 
-            x=y;
+              ans=max(ans,j-y+1); //puts max subarray to ans variable
+           // x=y;//assigns y->x so the for loop cans start index will be found element +1
           
         }
         return ans;
