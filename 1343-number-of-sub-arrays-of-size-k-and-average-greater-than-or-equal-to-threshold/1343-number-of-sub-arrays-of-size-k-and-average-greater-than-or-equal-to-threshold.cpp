@@ -20,7 +20,7 @@ public:
       int n= arr.size();
          int l=0,r=0,sum=0,count=0;
          while(r<n){
-             while(r-l+1 <= k){
+             while(r-l+1 <= k){//while subarray <=k add elements
                  sum+=arr[r++];
              }
              if(sum>=k*threshold){
