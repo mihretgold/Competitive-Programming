@@ -23,7 +23,7 @@ public:
             if(nums[i]==0){
                count++; 
             }
-            while(count>1){
+            if(count>1){
                 if(nums[j]==0)count--;
                 j++;
             }
