@@ -20,10 +20,10 @@ public:
     int longestSubarray(vector<int>& nums) {
         int n=nums.size(),count=0,m=0;
         for(int i=0,j=0; i<n; i++){
-            if(nums[i]==0){
+            if(nums[i]==0){//counts zeros
                count++; 
             }
-            if(count>1){
+            if(count>1){//while there is more than 1 zero increament left pointer
                 if(nums[j]==0)count--;
                 j++;
             }
