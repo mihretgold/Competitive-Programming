@@ -1,11 +1,11 @@
-class Solution {
+/*class Solution {
 public:
     /*
      s = "abciiidef", k = 3  count=0
      //ask if all capital or lowercase letters
              
     */
-    int maxVowels(string s, int k) {
+  /*  int maxVowels(string s, int k) {
       int n=s.size();
         int l=0,r=0,count=0,m=0;
         while(r<n){
@@ -25,4 +25,54 @@ public:
         }
         return m;
     }
+};*/
+class Solution {
+public:
+    
+    int maxVowels(string s, int k) {
+     queue<char> q;
+        int cnt=0;
+        int maxi=0;
+        for(int i=0,j=0;i<s.length();i++)
+        {
+            if(s[i]=='a' || s[i]=='e' ||s[i]=='i' ||s[i]=='o' ||s[i]=='u' )//check if elements are vowel
+            {
+                cnt++;
+            }
+            if(i-j+1==k)//limit window size
+            {
+                maxi=max(maxi,cnt);
+               if(s[j]=='a'|| s[j]=='e'|| s[j]=='i'|| s[j]=='o'|| s[j]=='u')//check if elements are vowel
+                {
+                    cnt--;
+                }
+                j++;
+            }
+        }
+        return maxi; 
+    }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
