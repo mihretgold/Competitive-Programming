@@ -16,23 +16,18 @@ public:
     
     
     */
-    int numOfSubarrays(vector<int>& arr, int k, int threshold) {
-      
-        int n= arr.size();
-        int s=0, e=0, counts=0, sum=0;
-        
-        while(e<n){
-            while(e-s+1<=k){
-                sum+=arr[e];
-                e++;
-            }
-          if(sum/k >= threshold){
-              counts++;
-          }  
-            sum-=arr[s];
-            s++;                    
-            
-        }
-       return counts; 
+     int numOfSubarrays(vector<int>& arr, int k, int threshold) {
+      int n= arr.size();
+         int l=0,r=0,sum=0,count=0;
+         while(r<n){
+             while(r-l+1 <= k){
+                 sum+=arr[r++];
+             }
+             if(sum>=k*threshold){
+                 count++;
+             }
+             sum-=arr[l++];
+         }
+         return count;
     }
 };
