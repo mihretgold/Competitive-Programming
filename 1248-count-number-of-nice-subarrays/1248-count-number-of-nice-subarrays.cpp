@@ -12,13 +12,14 @@ public:
         }
         while(oc==k) { //if have the num odd numbers we need in the subarray
             count++;
-           if(arr[l]%2!=0) oc--;  l++; //if the left ptr was on an odd number 
+           if(arr[l]%2!=0) oc--;  //if the left ptr was on an odd number 
+            l++;
              
         }
         ans+=count;
             r++;
     }
     
-    return ans;
-}
+      return ans;
+    }
 };
