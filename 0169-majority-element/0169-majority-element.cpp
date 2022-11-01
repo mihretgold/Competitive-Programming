@@ -1,6 +1,7 @@
 class Solution {
 public:
-    int majorityElement(vector<int>& nums) {
+   /* TIMECOMPLEXITY: O(N) SPACE: O(N)
+   int majorityElement(vector<int>& nums) {
         unordered_map<int, int>mp;
         int max=nums[0];//store first element as maximum
         
@@ -14,5 +15,18 @@ public:
         }
         
         return max;
+    }*/
+    
+    int majorityElement(vector<int>& nums) {
+        int n=nums.size();
+        sort(nums.begin(),nums.end());        
+        return nums[n/2];
     }
+    
+    /*int majorityElement(vector<int>& nums) {
+        int max=nums[0];//store first element as maximum
+        
+        
+        return max;
+    }*/
 };
