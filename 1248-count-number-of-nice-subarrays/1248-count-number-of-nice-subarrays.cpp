@@ -1,23 +1,24 @@
 class Solution {
 public:
-    int numberOfSubarrays(vector<int>& nums, int k) {
-      unordered_map<int,int>mp;
-       int n=nums.size(); 
-        for(int i=0;i<n; i++){
-            if(nums[i]&1)
-                nums[i]=1;
-            else
-                nums[i]=0;
+    int numberOfSubarrays(vector<int>arr, int k){
+    int n=arr.size();
+    int r=0,l=0;
+    int oc=0,count=0,ans=0;
+    
+    while(r<n){
+        if(arr[r] %2!=0){//if the num is odd increament oc and r ptr
+            oc++;
+            count=0;
         }
-        int sum=0,i,counts=0;
-        for(i=0;i<n;i++){
-            sum+=nums[i];
-            if(sum==k)
-                counts++;
-            if(mp.find(sum-k)!=mp.end())
-                counts+=mp[sum-k];
-            mp[sum]++;
+        while(oc==k) { //if have the num odd numbers we need in the subarray
+            count++;
+           if(arr[l]%2!=0) oc--;  l++; //if the left ptr was on an odd number 
+             
         }
-        return counts;
+        ans+=count;
+            r++;
     }
+    
+    return ans;
+}
 };
