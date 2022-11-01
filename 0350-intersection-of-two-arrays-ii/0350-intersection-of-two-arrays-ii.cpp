@@ -9,6 +9,7 @@ public:
     
     
     */
+    /*SORTING TIME COMPLEXITY:O(NLOGN)  SPACE: O(N)
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
      int n= nums1.size(), l=nums2.size();
         int i=0,j=0,a=0;
@@ -24,6 +25,22 @@ public:
                 j++;
             }else{//if not similar and nums1 is less
                 i++;
+            }
+        }
+        return ans;
+    }*/
+    //HASH MAP TIME COMPLEXITY:O(N)  SPACE: O(N)
+     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> ans;
+        if(nums1.size()==0 || nums2.size()==0) return ans;//if either arrays are empty return empty array
+        unordered_map<int,int> freq;
+        for(int i=0;i<nums1.size();i++){//store nums1 in map
+            freq[nums1[i]]++;
+        }
+        for(int i=0;i<nums2.size();i++){
+            if(freq.find(nums2[i])!=freq.end() && freq[nums2[i]]){//if nums2 is in map and the count of found num >0
+                freq[nums2[i]]--;//decreament the count once found
+                ans.push_back(nums2[i]);//store found number on ans vector
             }
         }
         return ans;
