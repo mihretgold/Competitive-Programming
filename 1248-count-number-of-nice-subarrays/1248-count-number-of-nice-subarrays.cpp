@@ -1,5 +1,6 @@
 class Solution {
 public:
+    /*TWO POINTER SLIDING WINDOWS METHOD
     int numberOfSubarrays(vector<int>arr, int k){
     int n=arr.size();
     int r=0,l=0;
@@ -8,7 +9,7 @@ public:
     while(r<n){
         if(arr[r] %2!=0){//if the num is odd increament oc and r ptr
             oc++;
-            count=0;
+            count=0;//to restart count
         }
         while(oc==k) { //if have the num odd numbers we need in the subarray
             count++;
@@ -16,10 +17,32 @@ public:
             l++;
              
         }
-        ans+=count;
+        ans+=count;//to store count
             r++;
     }
     
       return ans;
+    }*/
+    int numberOfSubarrays(vector<int>& nums, int k) {
+      unordered_map<int,int>mp;
+       int n=nums.size(); 
+        for(int i=0;i<n; i++){
+            if(nums[i]&1)
+                nums[i]=1;
+            else
+                nums[i]=0;
+        }
+        int sum=0,i,counts=0;
+        mp[0]=1;
+        for(i=0;i<n;i++){
+            sum+=nums[i];
+           /* if(sum==k)
+                counts++;*/
+            if(mp.find(sum-k)!=mp.end())
+                counts+=mp[sum-k];
+            mp[sum]++;
+        }
+        return counts;
     }
+    
 };
