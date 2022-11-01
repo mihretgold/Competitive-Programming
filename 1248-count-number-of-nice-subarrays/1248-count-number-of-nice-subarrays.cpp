@@ -23,6 +23,7 @@ public:
     
       return ans;
     }*/
+    //PREFIX SUM
     int numberOfSubarrays(vector<int>& nums, int k) {
       unordered_map<int,int>mp;
        int n=nums.size(); 
