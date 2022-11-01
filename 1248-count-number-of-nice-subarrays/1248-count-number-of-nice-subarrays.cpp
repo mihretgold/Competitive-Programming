@@ -27,20 +27,20 @@ public:
       unordered_map<int,int>mp;
        int n=nums.size(); 
         for(int i=0;i<n; i++){
-            if(nums[i]&1)
+            if(nums[i]&1)//change odd numbers to 1
                 nums[i]=1;
-            else
+            else//change even numbers to 0
                 nums[i]=0;
         }
         int sum=0,i,counts=0;
-        mp[0]=1;
+        mp[0]=1;//to inrease count when sum ==k
         for(i=0;i<n;i++){
             sum+=nums[i];
-           /* if(sum==k)
+           /* if(sum==k)//alternative of mp[0]=1
                 counts++;*/
-            if(mp.find(sum-k)!=mp.end())
+            if(mp.find(sum-k)!=mp.end())//if sum -k is found there is a subarray
                 counts+=mp[sum-k];
-            mp[sum]++;
+            mp[sum]++;//store sum in map
         }
         return counts;
     }
