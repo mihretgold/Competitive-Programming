@@ -1,5 +1,8 @@
 class MinStack {
 public: 
+    /*
+    make 2 stakes one to store values and the other to store the min values make both on push function
+    */
     stack<int>s;
     stack<int>c;
     MinStack() {
@@ -7,12 +10,12 @@ public:
     }
     
     void push(int val) {
-       if(!c.empty() && val>=c.top()){
+       if(!c.empty() && val>=c.top()){//if min stack is not empty and the new element < push the last element
            c.push(c.top());
-       }else{
+       }else{//if min stack is empty of the new element > push the new element
            c.push(val);
        }
-         s.push(val);
+         s.push(val);//store all values
     }
     
     void pop() {
