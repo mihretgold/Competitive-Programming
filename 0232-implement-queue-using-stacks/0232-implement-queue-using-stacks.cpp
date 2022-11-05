@@ -1,4 +1,5 @@
-class MyQueue {
+class MyQueue { 
+    //To create a queue we use 2 stacks one to push back elements the other to copy elements from the first stack and to remove front elements and peek at the first element
 public:
     stack<int>s;
     stack<int>c;
