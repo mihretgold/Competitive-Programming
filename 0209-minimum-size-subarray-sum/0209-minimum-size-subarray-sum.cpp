@@ -16,15 +16,15 @@ public:
     int minSubArrayLen(int target, vector<int>& nums) {
         int n=nums.size();
         int r=0, l=0,mini=n+1, sum=0;
-        while(l<n){
-              sum+=nums[l++];        
+        while(r<n){
+              sum+=nums[r++];        
           while(sum >= target){
-              mini=min(mini,l-r);
-              sum-=nums[r++];
-               
+              mini=min(mini,r-l);//we make mini inside while loop to make sure subarray sum > target
+              sum-=nums[l++];               
           }          
             
         }
         return mini==n+1?0:mini;
     }
 };
+ 
