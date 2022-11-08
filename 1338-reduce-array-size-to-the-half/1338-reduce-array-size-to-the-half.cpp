@@ -1,7 +1,7 @@
 class Solution {
 public:
     static bool cmp(pair<int,int>&a ,pair<int,int>&b){
-            return a.second>b.second;
+            return a.second>b.second;//sort in decreasing order
     }
     
     int minSetSize(vector<int>& arr) {
@@ -9,14 +9,14 @@ public:
       int n=arr.size();
       int counts=0,sum=0,i=0;
        
-        for(auto i: arr){
+        for(auto i: arr){//add nums and count to map
             m[i]++;
         }
-         vector<pair<int,int>>v(m.begin(),m.end());
+         vector<pair<int,int>>v(m.begin(),m.end());//copy map to vector to sort
    
-        sort(v.begin(), v.end(),cmp);
+        sort(v.begin(), v.end(),cmp);//sort according to count
         
-        while(sum <n/2){
+        while(sum <n/2){//add counts of element till it becomes >= n/2
             sum+=v[i].second;
             counts++;
             i++;
