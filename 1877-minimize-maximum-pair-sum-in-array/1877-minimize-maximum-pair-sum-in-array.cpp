@@ -5,7 +5,7 @@ public:
     int maxi=0,sum;
     //to find minimized max pair sum
     sort(v.begin(),v.end());
-    while(s<e){
+      while(s<e){
         sum=v[s]+v[e];
         maxi=max(maxi,sum);
         s++;
