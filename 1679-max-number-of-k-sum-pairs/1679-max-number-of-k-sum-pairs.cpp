@@ -8,9 +8,9 @@ public:
             if(nums[s]+nums[e]==k){
                 count++;
                 s++; e--;
-            }else if(nums[s]+nums[e] >k){
+            }else if(nums[s]+nums[e] >k){//because the greater numbers are at the end
                  e--;
-            }else if(nums[s]+nums[e] <k){
+            }else if(nums[s]+nums[e] <k){//because the smaller numbers are the start
                  s++;
             }
         }
