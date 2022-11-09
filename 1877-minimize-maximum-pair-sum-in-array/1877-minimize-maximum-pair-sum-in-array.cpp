@@ -1,13 +1,17 @@
 class Solution {
 public:
-    int minPairSum(vector<int>& nums) {
-     const int n=nums.size();
-      int m=0;
-      sort(nums.begin(),nums.end());  
-      for(int i=0; i<n/2; i++){
-          m=max(m,nums[i]+nums[n-i-1]);
-      }
-      
-     return  m;  
+    int minPairSum(vector<int>& v) {
+         int s=0, e=v.size()-1;
+    int maxi=0,sum;
+    //to find minimized max pair sum
+    sort(v.begin(),v.end());
+    while(s<e){
+        sum=v[s]+v[e];
+        maxi=max(maxi,sum);
+        s++;
+        e--;
+    }
+    
+    return maxi; 
     }
 };
