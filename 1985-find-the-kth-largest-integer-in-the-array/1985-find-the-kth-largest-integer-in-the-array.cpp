@@ -9,9 +9,6 @@ public:
     string kthLargestNumber(vector<string>& nums, int k) {
       sort(nums.begin(),nums.end(),cmp);
         int n=nums.size();
-        string ans;
-        for(int i=0; i<nums.size(); i++)
-            ans=nums[n-k];
-        return ans;
+        return nums[n-k];
     }
 };
