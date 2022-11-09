@@ -2,24 +2,18 @@ class Solution {
 public:
     
     int maxOperations(vector<int>& nums, int k) {
-      int counts=0,n=nums.size();
-      sort(nums.begin(), nums.end());        
-        int i=0,j=n-1;
-        while(i<j){
-            int sum = nums[i]+nums[j];
-            if(sum==k){
-                i++;
-                j--;
-                counts++;
+     sort(nums.begin(),nums.end());
+        int s=0, e=nums.size()-1,count=0;
+        while(s<e){
+            if(nums[s]+nums[e]==k){
+                count++;
+                s++; e--;
+            }else if(nums[s]+nums[e] >k){
+                 e--;
+            }else if(nums[s]+nums[e] <k){
+                 s++;
             }
-            else if(sum<k){
-                i++;
-            }
-            else if(sum>k){
-                j--;
-            }
-            
         }
-     return counts;
+        return count;
     }
 };
