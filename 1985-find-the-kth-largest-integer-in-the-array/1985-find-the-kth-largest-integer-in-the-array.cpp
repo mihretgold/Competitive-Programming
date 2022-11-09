@@ -10,10 +10,8 @@ public:
       sort(nums.begin(),nums.end(),cmp);
         int n=nums.size();
         string ans;
-        for(int i=0; i<nums.size(); i++){
+        for(int i=0; i<nums.size(); i++)
             ans=nums[n-k];
-            break;
-        }
         return ans;
     }
 };
