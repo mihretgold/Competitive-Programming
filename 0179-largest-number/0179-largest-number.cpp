@@ -1,6 +1,6 @@
 class Solution {
 public:
-    /*static bool cmp(string &a, string &b){
+    static bool cmp(string &a, string &b){
         return (a+b)>=(b+a);
     }
     string largestNumber(vector<int>& nums) {
@@ -13,34 +13,14 @@ public:
         }
         if(x==nums.size()) return "0";//if all elements are 0 we return "0"
         
-        for(int i=0; i<nums.size(); i++){
+        for(int i=0; i<nums.size(); i++){//put all the int to string vector
             s[i]=to_string(nums[i]);
         }
-        sort(s.begin(),s.end(),cmp);
+        sort(s.begin(),s.end(),cmp);//sort with custom comparator
         string ans="";
-        for(int i=0; i<s.size(); i++){
+        for(int i=0; i<s.size(); i++){//append the answer to a string
             ans+=s[i];
         }
-        return ans;*/
-    static bool cmp(string &a, string&b){
-    return a+b>=b+a;
-}
-string largestNumber(vector<int>& nums){
-   int n=nums.size(),count=0;
-    for(int x: nums){
-        if(x==0) count++;
+        return ans;
     }
-    //if all elements are 0
-    if(count ==n) return "0";
-    vector<string>s(n,"");
-    for(int i=0; i<n; i++){
-        s[i]+=to_string(nums[i]);
-    }
-    sort(s.begin(),s.end(),cmp);
-    string ans="";
-    for(int i=0; i<n; i++){
-        ans+=s[i];
-    }
-    return ans;
-}
 };
