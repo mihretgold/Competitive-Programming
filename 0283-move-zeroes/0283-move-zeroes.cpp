@@ -6,7 +6,7 @@ public:
     
     
     */
-   /* void moveZeroes(vector<int>& nums) {
+    void moveZeroes(vector<int>& nums) {
       int n=nums.size();
         vector<int>ans;
         int i,count=0;
@@ -24,8 +24,8 @@ public:
            nums[i]=ans[i];
         }
         //return ans;
-    }*/
-       void moveZeroes(vector<int>& nums) {
+    }
+      /* void moveZeroes(vector<int>& nums) {
         int n=nums.size(),r=0,l=0;
            if(n==0||n==1) return;
            while(r<n){
@@ -35,5 +35,5 @@ public:
                    swap(nums[l++], nums[r++]);
                }
            }
-    }
+    }*/
 };
