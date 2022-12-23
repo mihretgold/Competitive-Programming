@@ -5,23 +5,16 @@ class Solution:
 
     def findTheDifference(self, s: str, t: str) -> str:
         #put the letters and counts in string to dictionary 
-        map_s={}
+        map_s = defaultdict(int)
         for letter in s:
-            if letter in map_s:
-                map_s[letter] += 1
-            else: 
-                map_s[letter] = 1            
+            map_s[letter] += 1           
             
-        map_t={}
+        map_t = defaultdict(int)
         for letter in t:
-            if letter in map_t:
-                map_t[letter] += 1
-            else: 
-                map_t[letter] =1          
+            map_t[letter] += 1      
           
         for compare in map_t:
             if compare not in map_s or map_t[compare] != map_s[compare]:
-                
                 return compare
            
             
