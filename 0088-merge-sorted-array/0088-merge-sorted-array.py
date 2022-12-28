@@ -7,7 +7,7 @@ class Solution:
         m -= 1
         
         i = len(nums1) - 1
-        for _ in range(len(nums1)):
+        while(i >= 0):
             if m>=0 and n>=0 and nums1[m]>=nums2[n]:
                 nums1[i]=nums1[m]
                 m-=1
