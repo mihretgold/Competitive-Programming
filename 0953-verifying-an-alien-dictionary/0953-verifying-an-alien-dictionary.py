@@ -2,27 +2,30 @@ class Solution:
 
     def isAlienSorted(self, words: List[str], order: str) -> bool:
         map_order = {}
-        length_order = len(order)
-        length_words = len(words)
+        for index, letter in enumerate(order):
+            map_order[letter] = index
         
-        for index in range(length_order):
-            map_order[order[index]] = index
-                        
-        for  index in range(length_words - 1):
+        length = len(words)
+       
+        for index in range(length -1):
             word1 = words[index]
             word2 = words[index + 1]
-            
-            letter = 0
-            while(letter < len(word1) and letter < len(word2)):
-                if map_order[word1[letter]] > map_order[word2[letter]]:
+            i = 0 
+            len_w1 = len(word1)
+            len_w2 = len(word2)
+            while i < len_w1 and i < len_w2:
+                if map_order[word1[i]] > map_order[word2[i]]:
                     return False
-                elif map_order[word1[letter]] < map_order[word2[letter]]:
+                elif map_order[word1[i]] < map_order[word2[i]]:
                     break
-                letter += 1
-            
-            if letter == len(word2) and len(word1) > len(word2):
+                i += 1  
+                
+            if i == len_w2 and len_w1 > len_w2:
                 return False
-            
+                
+        
         return True
+        
+                    
                 
             
