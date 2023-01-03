@@ -1,22 +1,21 @@
 class Solution:
        def longestCommonPrefix(self, strs: List[str]) -> str:
-        if len(strs) == 0:
-            return("")
-        if len(strs) == 1:
-            return(strs[0])
-        
-        prefix = strs[0]
-        length = len(prefix)
-        
-        for letter in strs[1:]:
-            #When we find non common char we remove it from prefix
-            while prefix != letter[0:length]:
-                prefix = prefix[0:(length -1)]
-                length -= 1
-                
-                if length == 0:
-                    return("")
-        return(prefix)
+            #Sort list because the most common prifix can be checked from the first element and the last
+            strs.sort()
+            length = len(strs[0])
+            right = 0
+            left = len(strs) - 1
+            answer = ''
+            
+            #Check letter on the first and last index of the list
+            
+            for index in range(length):
+                if strs[right][index] == strs[left][index]:
+                    answer += strs[right][index]
+                else:
+                    break
+            
+            return answer
                  
                
                         
