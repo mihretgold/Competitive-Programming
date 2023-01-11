@@ -9,10 +9,6 @@ class Solution:
             if index < length-1 and string[index] == '/' and string[index+1] == '/':
                 while index < length and string[index] != '\n':
                     index += 1
-                if len(word) > 0:
-                    answer.append(word)
-                    word = ""
-                index += 1
             elif index < length-1 and string[index] == '/' and string[index+1] == '*':
                 index += 2
                 while index < length-1:
@@ -21,22 +17,22 @@ class Solution:
                     index += 1
                 index += 2
             else:
-                if  index == length -1:
+                if index < length:
                     word += string[index]
-                    answer.append(word)
-                    
-                    # print(answer)
-                elif string[index] == '\n' and len(word) > 0:
-                    answer.append(word)
-                    word = ''
-                    # print(answer)
-                elif index < length-2 and string[index + 1] == '/' and (string[index+2] == '*' or string[index+1] == '/') :
-                    word += string[index]
-                else:
-                    if string[index] != '\n':
-                        word += string[index]
                 index += 1
-                   
+                
+        length_word = len(word)
+        letter = 0
+        
+        while letter < length_word:
+            res = ""
+            while letter < length_word and word[letter] != "\n":
+                res += word[letter]
+                letter += 1
+                
+            if len(res) != 0:
+                answer.append(res)
+            letter += 1
             
         return answer
         
