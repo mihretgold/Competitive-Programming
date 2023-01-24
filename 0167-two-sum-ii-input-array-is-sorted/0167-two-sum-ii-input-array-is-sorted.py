@@ -1,16 +1,22 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        length = len(numbers)
-        start = 0
-        end = length - 1
+        complement = set()
         ans = []
-        while(start < end):
-            if numbers[start] + numbers[end] == target:
-                ans = [start+1, end+1]
-                break
-            elif numbers[start] + numbers[end] > target:
-                end -= 1
+        length = len(numbers)
+        for num in range(length):
+            check = target - numbers[num]
+            if check in complement:
+                a = numbers.index(check) + 1
+                if a < num + 1:
+                    ans = [a, num+1]
+                    break
+                else:
+                    ans = [num+1, a]
+                    break
             else:
-                start += 1
-                
+                complement.add(numbers[num])
+        
         return ans
+                
+                
+        
