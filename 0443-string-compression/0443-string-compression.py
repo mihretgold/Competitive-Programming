@@ -35,4 +35,4 @@ class Solution:
                 
        
             
-        return count
+        return index
