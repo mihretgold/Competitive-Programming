@@ -11,8 +11,7 @@ class Solution:
             if players[play] <= trainers[train]:
                 count += 1
                 play += 1
-                train += 1
-            else:
-                train += 1
+           
+            train += 1
             
         return count
