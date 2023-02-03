@@ -19,7 +19,9 @@ class Solution:
         while ranges > 0:
             curr = curr.next
             ranges -= 1 
-        curr.next = curr.next.next
+            
+        if curr and curr.next:
+            curr.next = curr.next.next
             
         return dummy.next
             
