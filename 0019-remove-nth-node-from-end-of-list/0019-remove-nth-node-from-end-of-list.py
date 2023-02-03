@@ -18,9 +18,13 @@ class Solution:
         curr = dummy
         while ranges > 0:
             curr = curr.next
-            ranges -= 1 
+            ranges -= 1
             
-        if curr and curr.next:
+        # if not head or not head.next:
+        #     head = None
+        if range == 0:
+            head = head.next
+        elif curr and curr.next:
             curr.next = curr.next.next
             
         return dummy.next
