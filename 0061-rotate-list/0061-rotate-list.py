@@ -13,7 +13,7 @@ class Solution:
             curr = curr.next
             count += 1
         
-        if count == 0 or count <= 1 or k < 1 or k % count == 0:
+        if count <= 1 or k < 1 or k % count == 0:
             return head
         
         curr = head
