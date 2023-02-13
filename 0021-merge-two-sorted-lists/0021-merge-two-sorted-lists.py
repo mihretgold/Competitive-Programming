@@ -10,31 +10,18 @@ class Solution:
         
         while list1 and list2:
             if list1.val <= list2.val:
-                newNode = ListNode(list1.val)
-                while dummy.next:
-                    dummy = dummy.next
-                dummy.next = newNode
+                dummy.next = list1
                 list1 = list1.next
             else:
-                newNode = ListNode(list2.val)
-                while dummy.next:
-                    dummy = dummy.next
-                dummy.next = newNode 
+                dummy.next = list2 
                 list2 = list2.next
+            dummy = dummy.next
                 
-        while list1:
-            newNode = ListNode(list1.val)            
-            while dummy.next:
-                dummy = dummy.next                    
-            dummy.next = newNode
-            list1 = list1.next
+        if list1:                 
+            dummy.next = list1
             
-        while list2:
-            newNode = ListNode(list2.val)
-            while dummy.next:
-                dummy = dummy.next
-            dummy.next = newNode
-            list2 = list2.next
+        if list2:
+            dummy.next = list2
             
        
         return temp.next
