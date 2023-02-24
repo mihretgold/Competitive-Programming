@@ -18,9 +18,7 @@ class Solution:
         answer = []
         length = len(temperatures)
         
-        for index in range(length-1, -1, -1):
-            # if len(stack) == 0:
-            #     stack.append(temperatures[index])                
+        for index in range(length-1, -1, -1):               
             while len(stack) > 0 and temperatures[index] >= temperatures[stack[-1]]:
                 stack.pop()
             if len(stack) > 0:
