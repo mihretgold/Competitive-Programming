@@ -4,15 +4,12 @@ class Solution:
         greater = [-1 for _ in range(length)]
         stack = []
         
-        for index in range(length):
-            while stack and nums[stack[-1]] < nums[index]:
-                greater[stack[-1]] = nums[index]
-                stack.pop()
-            stack.append(index)
-
-        for index in range(length):
-           while stack and index < stack[-1] and nums[stack[-1]] < nums[index]:
-                greater[stack[-1]] = nums[index]
+        for index in range(2*length):
+            while stack and nums[stack[-1]] < nums[index%length]:
+                greater[stack[-1]] = nums[index%length]
                 stack.pop() 
+            stack.append(index%length)
 
+    
+           
         return greater
