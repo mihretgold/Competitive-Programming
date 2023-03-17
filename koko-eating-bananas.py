@@ -1,4 +1,4 @@
-class Solution:       
+class Solution:        
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         low = 1
         high = max(piles)
