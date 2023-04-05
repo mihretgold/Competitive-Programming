@@ -1,16 +1,16 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
+        length = (2**len(nums))
         subsets = []
-        path = []
-        def calcSubsets(index, path):
-            if index == len(nums):
-                subsets.append(path[:])
-                return
 
-            path.append(nums[index])
-            calcSubsets(index+1, path)
-            path.pop()
-            calcSubsets(index+1, path)
+        for index in range(length):
+            temp = []
+            for i in range(len(nums)):
+                if index & 1 << i != 0:
+                    val = nums[i]
+                    temp.append(val)
+            subsets.append(temp)
 
-        calcSubsets(0, path)
+
+
         return subsets
