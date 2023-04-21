@@ -13,26 +13,16 @@ class ThroneInheritance:
         
 
     def getInheritanceOrder(self) -> List[str]:
-        self.answer = [self.king]
-        visted = set()
+        self.answer = []
         
         def dfs(parent):
-            visted.add(parent)
+            if parent not in self.deathList:
+                self.answer.append(parent)
             for child in self.inheritance[parent]:
-                if child not in visted:
-                    # print(child)
-                    self.answer.append(child)
-                    dfs(child)
+                dfs(child)
 
 
         dfs(self.king)
-        print(self.answer)
-        result = []
-        for curr in self.answer:
-            if curr not in self.deathList:
-                result.append(curr)
-        
-        self.answer = result
         return self.answer
         
 
