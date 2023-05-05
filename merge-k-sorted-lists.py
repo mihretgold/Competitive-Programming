@@ -8,10 +8,7 @@ class Solution:
         answer = ListNode(-1)
         temp = answer
         heap = []
-        i = 0
-        count = 0
         length = len(lists)
-        visted = set()
         for i in range(length):
             if lists[i]:
                 heappush(heap, (lists[i].val, i))
