@@ -8,12 +8,15 @@ class Solution:
         visted = set()
         answer = []
         def dfs(node):
-            answer.append(node)
-            
-            for child in graph[node]:
-                if child not in visted:
-                    visted.add(child)
-                    dfs(child)
+            stack = [node]
+            while stack:
+                node = stack.pop()
+                answer.append(node)
+                
+                for child in graph[node]:
+                    if child not in visted:
+                        visted.add(child)
+                        stack.append(child)
 
 
         for num in graph:
