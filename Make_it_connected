@@ -1,0 +1,79 @@
+import functools
+import math
+import sys
+from functools import cmp_to_key
+ 
+def I(): return int(input())
+def II(): return map(int, input().split())
+def IL(): return list(map(int, input().split()))
+def SIL(): return sorted(map(int, input().split()))
+from collections import defaultdict
+from collections import Counter
+from collections import deque
+sys.setrecursionlimit(2500)
+from heapq import heapify ,heappop , heappush,heappushpop,heapreplace,_heapify_max ,nlargest ,nsmallest
+ 
+def find(rep, x):
+    root = x
+    while root != rep[root]:
+        rep[root] = rep[rep[root]]
+        root = rep[root]
+ 
+    while x != root:
+        rep[x], x = root, rep[x]
+ 
+    return root
+ 
+ 
+def union(rep, count, x, y):
+    rep_x = find(rep, x)
+    rep_y = find(rep, y)
+ 
+    if rep_x != rep_y:
+        if count[rep_x] > count[rep_y]:
+            rep[rep_y] = rep_x
+            count[rep_x] += count[rep_y]
+        else:
+            rep[rep_x] = rep_y
+            count[rep_y] += count[rep_x]
+ 
+ 
+def connected(rep, x, y):
+    return find(rep, x) == find(rep, y)
+ 
+def solve():
+    n, m = II()
+    a = IL()
+    offers = []
+    edges = []
+    mini = (float('inf'), 0)
+ 
+    rep = {i: i for i in range(n)}
+    count = {i: 1 for i in range(n)}
+ 
+    for _ in range(m):
+        x, y, d = II()
+        edges.append((d, x-1, y-1))
+ 
+    for i in range(n):
+        if mini[0] > a[i]:
+            mini = (a[i], i)
+ 
+    for i in range(n):
+        if i != mini[1]:
+            dis = a[i] + mini[0]
+            edges.append((dis, mini[1], i))
+ 
+    edges.sort()
+    res = 0
+    for dis, start, end in edges:
+        if not connected(rep, start, end):
+            res += dis
+            union(rep, count, start, end)
+ 
+    print(res)
+ 
+ 
+T = 1
+for ___ in range(T):
+    solve()
