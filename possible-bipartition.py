@@ -1,28 +1,32 @@
 class Solution:
     def possibleBipartition(self, n: int, dislikes: List[List[int]]) -> bool:
-        visted = defaultdict(int)
         graph = defaultdict(list)
 
-        for a, b in dislikes:
-            graph[a].append(b)
-            graph[b].append(a)
+        for start, end in dislikes:
+            graph[start].append(end)
+            graph[end].append(start)
 
+        length = len(dislikes)
+        visted = defaultdict(int)
 
         def dfs(vertex, color):
-            visted[vertex] = color
+            stack = [(vertex, color)]
 
-            for neighbour in graph[vertex]:
-                if neighbour not in visted:
-                    if not dfs(neighbour, -color):
+            while stack:
+                vertex, color = stack.pop()
+
+                for child in graph[vertex]:
+                    if child not in visted:
+                        visted[child] = -color
+                        stack.append((child, -color))
+                    elif visted[child] == visted[vertex]:
                         return False
-                elif visted[neighbour] == visted[vertex]:
-                    return False
 
             return True
 
-        for node in graph:
-            if node not in visted:
-                if not dfs(node, 1):
+        for vertex in graph:
+            if vertex not in visted:
+                if not dfs(vertex, 1):
                     return False
 
         return True
