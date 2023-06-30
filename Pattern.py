@@ -3,7 +3,7 @@ pattern = []
 for i in range(n):
     string = input()
     pattern.append(string)
-
+ 
 answer = ''
 m = len(pattern[0])
 for i in range(m):
