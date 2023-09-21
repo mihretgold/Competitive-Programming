@@ -3,17 +3,10 @@ class Solution:
         length = len(nums1) + len(nums2)
         length1 = len(nums1)
         length2 = len(nums2)
-        idx = (-1, -1)
-        
-        if length & 1:
-            idx = (length//2, -1)
-        else:
-            idx = (length//2, length//2 + 1)
         
         i = 0
         j = 0
         index = 0
-        found = 0
         num = [0, 0]
         foundans = [0, 0]
         while i < length1 and j < length2:
@@ -67,7 +60,7 @@ class Solution:
                 break
             
             j += 1
-        # print(num, idx) 
+
         if length & 1:
             return num[1]
         else:
