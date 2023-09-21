@@ -12,8 +12,7 @@ class Solution:
         while i < length1 and j < length2:
             index += 1
             if nums1[i] <= nums2[j]:
-                if index == length//2:
-                # print(index, i, j, found)                                   
+                if index == length//2:                                  
                     num[0] = nums1[i]
                     foundans[0] = 1
                 elif index == length//2 + 1:
@@ -23,8 +22,7 @@ class Solution:
                
                 i += 1
             else:
-                if index == length//2:
-                # print(index, i, j, found)                                   
+                if index == length//2:                                   
                     num[0] = nums2[j]
                     foundans[0] = 1
                 elif index == length//2 + 1:
@@ -41,7 +39,6 @@ class Solution:
         while i < length1:
             index += 1
             if index == length//2 and not foundans[0]:
-                # print(index, i, length)
                 num[0] = nums1[i]
                 
             elif index == length//2 + 1 and not foundans[1]:
@@ -51,7 +48,6 @@ class Solution:
                 
         while j < length2:
             index += 1
-            # print(index, j, length, foundans)
             if index == length//2 and not foundans[0]:
                 num[0] = nums2[j]
                 
