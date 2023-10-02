@@ -1,17 +1,18 @@
 class Solution:
     def maxSatisfaction(self, satisfaction: List[int]) -> int: 
-        satisfaction.sort()
         length = len(satisfaction)
-        sums = 0
-        total = 0
-      
-        for index in range(length-1, -1, -1):
-            total += satisfaction[index]
-            
-            new_sum = sums + total
-            if sums > new_sum:
-                return sums
-            else:
-                sums = new_sum
+        dp = [0] * length
+        satisfaction.sort(reverse = True)
 
-        return sums
+        for row in range(length):
+            val = 1 * satisfaction[row]
+            count = 2
+            for col in range(row-1, -1, -1):
+                val += count * satisfaction[col]
+                count += 1
+
+            if val < 0:
+                val = 0
+            dp[row] = val
+
+        return max(dp)
