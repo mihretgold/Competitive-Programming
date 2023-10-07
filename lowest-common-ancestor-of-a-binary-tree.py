@@ -18,7 +18,9 @@ class Solution:
 
         if left == None and right != None:
             return right
-        if left != None and right == None:
+        elif left != None and right == None:
             return left
-        if left != None and right != None:
+        elif left != None and right != None:
             return root
+        else:
+            return None
