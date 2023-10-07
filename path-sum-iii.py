@@ -15,10 +15,7 @@ class Solution:
                 return 
 
             arr[l] = root.val
-            # if root.val == targetSum:
-            #     count += 1
-            
-            
+                  
             i = 0
             while i < l+1:
                 if sum(arr[i:l+1]) == targetSum:
