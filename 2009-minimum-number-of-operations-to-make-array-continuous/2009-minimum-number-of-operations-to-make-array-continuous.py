@@ -1,13 +1,11 @@
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
-        mini = min(nums)
+        
         length = len(nums)
-        wantedNums = set(nums)
         ans = float('inf')
-        count = 0
-        nums = list(wantedNums)
+        nums = list(set(nums))
         nums.sort()
-        # print(nums)
+       
         def binary(search, check):
             low = 0 
             high = len(nums) - 1
@@ -19,7 +17,7 @@ class Solution:
                     low = mid + 1
                 else:
                     high = mid - 1
-            # print(search, check, high, low)        
+              
             if check:
                 return high + 1
             else:
