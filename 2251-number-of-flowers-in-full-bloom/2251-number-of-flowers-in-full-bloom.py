@@ -1,12 +1,8 @@
 class Solution:
     def fullBloomFlowers(self, flowers: List[List[int]], people: List[int]) -> List[int]:
-        length = len(people)
-        answer = [0] * length
-        
+        answer = [0] * len(people)
         flowers.sort()
-        
         lowerBound, upperBound = zip(*flowers)
-        # lowerBound = list(lowerBound)
         upperBound = sorted(upperBound)
 
         
@@ -24,15 +20,14 @@ class Solution:
                     
             return high
         
-        def binaryLeft(arr, search):
+        def binaryLeft(search):
             low = 0
-            high = len(arr) - 1
-            # print(arr, search)
+            high = len(upperBound) - 1
             
             while low <= high:
                 mid = low + (high - low)//2
                 
-                if arr[mid] >= search:
+                if upperBound[mid] >= search:
                     high = mid - 1   
                 else:
                     low = mid + 1
@@ -42,10 +37,9 @@ class Solution:
                 
                 
         
-        for index in range(length):
-            bloomed = binaryRight(people[index])
-            upper = binaryLeft(upperBound, people[index])
-            # print(bloomed, upper)
-            answer[index] = (bloomed - upper + 1)
+        for index, person in enumerate(people):
+            lower = binaryRight(person)
+            upper = binaryLeft(person)
+            answer[index] = (lower - upper + 1)
             
         return answer
