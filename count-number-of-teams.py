@@ -14,7 +14,6 @@ class Solution:
         for idx in range(length-2, -1, -1):
             for j in range(idx + 1, length):
                 if soliders[j][1] > soliders[idx][1]:
-                    # print(soliders[j][])
                     dp[idx] += 1
 
         for idx in range(length-2, -1, -1):
@@ -22,7 +21,6 @@ class Solution:
                 if soliders[j][1] > soliders[idx][1]:
                     answer += dp[j]
 
-        # for idx in range(length-2, -1, -1):
         soliders.reverse()
         dp = [0] * length
 
@@ -36,7 +34,7 @@ class Solution:
                 if soliders[j][1] > soliders[idx][1]:
                     answer += dp[j]
 
-        # print(dp)
+
 
 
         return answer
