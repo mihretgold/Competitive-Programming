@@ -32,7 +32,7 @@ class Solution:
             length = len(queue)
             
             maxx = float('-inf')
-            # print(queue)
+            
             for _ in range(length):
                 node, parent = queue.popleft() 
                 maxx = max(maxx, node.val)
@@ -43,9 +43,8 @@ class Solution:
                         queue.append((child, node))
                         visted.add(child)
                        
-                        # print(node, child)
             answer.append(maxx)  
-            # print(answer)
+            
             
         
         return answer
