@@ -9,44 +9,21 @@ class Solution:
         if not root:
             return []
         
-        graph = defaultdict(set)
+        graph = defaultdict(lambda: float('-inf'))
         
-        def traversal(root, parent):
+        def traversal(root, length):
             if not root:
                 return 
-            if parent != -1:
-                graph[root].add(parent)
-                graph[parent].add(root)
+            if graph[length] < root.val:
+                graph[length] = root.val
             
-            left = traversal(root.left, root)
-            right = traversal(root.right, root)
+            left = traversal(root.left, length + 1)
+            right = traversal(root.right, length + 1)
             
-        traversal(root, -1)
-        
-        queue = deque([(root, -1)])
-        answer = []
-        visted = set()
-        visted.add(root)
-        
-        while queue:
-            length = len(queue)
-            
-            maxx = float('-inf')
-            
-            for _ in range(length):
-                node, parent = queue.popleft() 
-                maxx = max(maxx, node.val)
-                
-                
-                for child in graph[node]:
-                    if (parent == -1 or child != parent) and child not in visted:
-                        queue.append((child, node))
-                        visted.add(child)
-                       
-            answer.append(maxx)  
-            
-            
-        
+        traversal(root, 0)
+        graph = OrderedDict(sorted(graph.items()))
+        answer = list(graph.values())
+       
         return answer
             
             
