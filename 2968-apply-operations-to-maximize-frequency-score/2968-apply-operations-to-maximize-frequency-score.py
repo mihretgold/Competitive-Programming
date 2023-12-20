@@ -18,10 +18,6 @@ class Solution:
                     targetValue = A[target]
                     left = (targetValue * (target - start + 1)) - (prefix[target + 1] - prefix[start])
                     right = (prefix[end+1] - prefix[target + 1]) - (targetValue * (end - target))
-                    # print(prefix)
-                    # print(A)
-                    # print(prefix[end+1] , prefix[target + 1] , (targetValue * (end - target)))
-                    # print(target, targetValue, left, right, mid, end, start)
                     if left + right <= k:
                         # print("in")
                         low = mid + 1
